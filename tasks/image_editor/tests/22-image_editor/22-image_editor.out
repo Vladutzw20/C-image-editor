@@ -29,17 +29,17 @@ Saved output/ci_1_5a.pgm
 Saved output/ci_1_5.pgm
 Loaded input/no_ext_p
 Selected 100 100 860 500
-Invalid command
+APPLY SHARPEN done
 Saved output/ci_1_6.ppm
 Loaded output/ci_1_6.ppm
 Selected 1060 700 1820 1100
-Invalid command
+APPLY BLUR done
 Saved output/ci_1_7.ppm
 Loaded output/ci_1_7.ppm
 Selected 100 700 860 1100
-Invalid command
+APPLY GAUSSIAN_BLUR done
 Selected 1060 100 1820 500
-Invalid command
+APPLY GAUSSIAN_BLUR done
 Saved output/ci_1_8.ppm
 Loaded output/ci_1_8.ppm
 Selected 760 400 1160 800
@@ -63,11 +63,11 @@ Image cropped
 Saved output/ci_1_12a.ppm
 Saved output/ci_1_12.ppm
 Loaded input/no_ext_p
-Invalid command
+APPLY SHARPEN done
 Saved output/ci_1_gray.ppm
-Invalid command
-Invalid command
-Invalid command
+APPLY SHARPEN done
+APPLY BLUR done
+APPLY GAUSSIAN_BLUR done
 Selected 0 0 100 100
 Saved output/ci_1_9.ppm
 Failed to load input/dummy

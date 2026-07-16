@@ -1,15 +1,15 @@
-==44111== Memcheck, a memory error detector
-==44111== Copyright (C) 2002-2022, and GNU GPL'd, by Julian Seward et al.
-==44111== Using Valgrind-3.22.0 and LibVEX; rerun with -h for copyright info
-==44111== Command: /home/vladutz/PCLP_Tema3/image_editor_project/image_editor
-==44111== Parent PID: 44110
-==44111== 
-==44111== 
-==44111== HEAP SUMMARY:
-==44111==     in use at exit: 0 bytes in 0 blocks
-==44111==   total heap usage: 5,306 allocs, 5,306 frees, 4,799,952 bytes allocated
-==44111== 
-==44111== All heap blocks were freed -- no leaks are possible
-==44111== 
-==44111== For lists of detected and suppressed errors, rerun with: -s
-==44111== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==48159== Memcheck, a memory error detector
+==48159== Copyright (C) 2002-2022, and GNU GPL'd, by Julian Seward et al.
+==48159== Using Valgrind-3.22.0 and LibVEX; rerun with -h for copyright info
+==48159== Command: /home/vladutz/PCLP_Tema3/image_editor_project/image_editor
+==48159== Parent PID: 48158
+==48159== 
+==48159== 
+==48159== HEAP SUMMARY:
+==48159==     in use at exit: 0 bytes in 0 blocks
+==48159==   total heap usage: 5,306 allocs, 5,306 frees, 4,799,952 bytes allocated
+==48159== 
+==48159== All heap blocks were freed -- no leaks are possible
+==48159== 
+==48159== For lists of detected and suppressed errors, rerun with: -s
+==48159== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
