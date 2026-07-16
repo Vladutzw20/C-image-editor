@@ -1,0 +1,41 @@
+# Image Editor in C
+
+## Project Overview
+This project implements a custom command-line image editor capable of processing Netpbm image formats (PGM and PPM). The core challenge of this project was managing dynamic memory for potentially massive pixel matrices without causing memory leaks or segmentation faults. 
+
+My approach relies on strict modularity: separating the command parsing, the file I/O operations, and the image processing math into distinct modules, all operating on a unified state structure passed by reference.
+
+## Data Structures Design
+Instead of relying on global variables, I encapsulated the entire application state within a single `image_t` structure. 
+
+To solve the problem of handling different color spaces efficiently, my approach was to define two separate double-pointers (2D arrays): 
+* `gray_matrix` for Grayscale data.
+* `color_matrix` for RGB data (using a custom `pixel_rgb` struct). 
+
+The program dynamically allocates only the specific matrix required by the loaded file, keeping the memory footprint as minimal as possible.
+
+## Implementation Logic & Problem Solving
+
+### 1. The Main Loop & Command Dispatcher
+* **The Problem:** Reading unpredictable user inputs and ensuring the program shuts down safely, releasing all resources.
+* **My Approach:** I built a continuous read loop using `fgets` to capture entire lines, preventing buffer overflow issues. The `cmd.c` module acts as a central router: it tokenizes the raw input string using `sscanf` to identify the command and its arguments. The `EXIT` command is intercepted at the highest level to trigger an immediate and safe memory cleanup before terminating the process.
+
+### 2. Selection Mechanism (`SELECT`, `SELECT ALL`)
+* **The Problem:** Users can input coordinates in reverse order (e.g., bottom-right to top-left) or specify boundaries outside the actual image dimensions.
+* **My Approach:** I implemented a robust validation logic. First, the program extracts the four coordinates and uses a swap algorithm to guarantee they are ordered correctly (`x1 < x2` and `y1 < y2`). After sorting, the coordinates are strictly checked against the current width and height of the image. If they are out of bounds, the command is ignored, preserving the previous selection.
+
+### 3. Cropping (`CROP`)
+* **The Problem:** Reducing the image size based on the current selection without causing memory fragmentation or losing data during the transition.
+* **My Approach:** Rather than attempting complex in-place array shifting, I opted for a safer "copy-and-replace" approach. The function dynamically allocates a brand-new 2D array sized exactly to the current selection bounds. It then copies the relevant pixels from the old matrix into the new one. Once the transfer is complete, the original matrix is safely freed, the new matrix pointer is attached to the `image_t` structure, and the image metadata (width, height) is updated.
+
+### 4. File I/O & Parsing (`LOAD`, `SAVE`)
+* **The Problem:** Parsing Netpbm files is tricky because they can contain random `#` comments in the header, and the pixel data can be either ASCII text or raw binary bytes. Furthermore, failing to load a file shouldn't crash the program.
+* **My Approach:** * **Comments:** I wrote a custom `skip_comments` helper function that detects the `#` character and consumes the input stream until a newline is found, ensuring the `fscanf` calls always hit the actual metadata (width, height, max value).
+  * **Reading/Writing:** I used conditional branching based on the parsed "magic word". If the file is ASCII, the program uses `fscanf`/`fprintf` to process standard integers. If the file is binary, it switches to `fread`/`fwrite` to handle the data at the byte level.
+  * **Memory Safety:** Before any new `LOAD` operation allocates memory, it actively calls the `free_image_resources` function. If the file doesn't exist, the program gracefully falls back to an "unloaded" state without crashing.
+
+## Compilation and Usage
+
+To compile the project, simply run the provided Makefile:
+```bash
+make build

@@ -5,6 +5,6 @@
 
 void free_image_resources(image_t *img);
 void load_image(const char *filename, image_t *img);
-void debug_print_image_to_file(image_t *img, const char *filename);
+void save_image(const char *filename, image_t *img, bool is_ascii);
 
 #endif

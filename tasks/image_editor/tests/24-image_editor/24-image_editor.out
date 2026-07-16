@@ -1,1 +1,50 @@
-Image Editor a pornit cu succes!
+Loaded input/b.ppm
+Selected 100 100 400 400
+Invalid command
+Selected 600 100 900 400
+Invalid command
+Selected 150 150 300 300
+Invalid command
+Saved output/ci_4_1a.ppm
+Saved output/ci_4_1.ppm
+Invalid command
+Invalid command
+Saved output/ci_4_2.ppm
+Loaded input/b_a.ppm
+Selected 100 100 400 400
+Invalid command
+Selected 600 100 900 400
+Selected 150 150 300 300
+Invalid command
+Invalid command
+Invalid command
+Saved output/ci_4_3a.ppm
+Saved output/ci_4_3.ppm
+Saved output/ci_4_4.ppm
+Loaded output/ci_4_4.ppm
+Selected 0 0 500 500
+Invalid set of coordinates
+Invalid command
+Selected 500 500 1920 1080
+Invalid set of coordinates
+Invalid command
+Selected ALL
+Saved output/ci_4_5.ppm
+Failed to load input/dummy
+Invalid command
+Invalid command
+Loaded input/b.pgm
+Invalid command
+Selected 0 0 100 100
+Image cropped
+Invalid command
+Invalid set of coordinates
+Invalid command
+Saved output/ci_4_6.pgm
+Loaded input/b_a.pgm
+Invalid command
+Invalid command
+Selected 0 0 100 100
+Image cropped
+Invalid set of coordinates
+Saved output/ci_4_7.pgm
